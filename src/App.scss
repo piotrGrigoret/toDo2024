@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Work Sans';
+}
+h1, h2, h3{
+  font-family: 'Inter';
+}
+a{
+  text-decoration: none;
+  color: #1976d2;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #1976d2;
+  border-radius: 10px; 
+  border: 2px solid #eaeaea; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #145aa1;  
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1; 
+  border-radius: 10px; 
+}
+
+.MuiBottomNavigationAction-label {
+  color: gray;
+}

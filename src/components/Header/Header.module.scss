@@ -1,0 +1,18 @@
+
+  
+.headerlink{
+  position: absolute;
+  left: 0px;
+}
+
+.mainImage {
+  width: auto;
+  height: 90%;
+}  
+@media (max-width: 900px) {
+  .mainImage {
+    width: auto; 
+    height: 70%;
+  }
+}
+
