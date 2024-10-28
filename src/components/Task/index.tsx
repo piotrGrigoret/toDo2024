@@ -4,11 +4,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Checkbox from '@mui/material/Checkbox';
-import DeleteForeverRoundedIcon from '@mui/icons-material/DeleteForeverRounded';
-import ManageHistoryRoundedIcon from '@mui/icons-material/ManageHistoryRounded';
 import { CheckboxProps } from '@mui/material/Checkbox';
 import { useState } from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 export default function Task() {
   
@@ -32,13 +30,21 @@ export default function Task() {
           onChange={handleCheckboxChange}
           onClick={(e) => e.stopPropagation()}
         />
-        {/* <DeleteForeverRoundedIcon/> 
-        <ManageHistoryRoundedIcon/> */}
-        {/* Доделать */}
+        
         <Box 
-          component={'p'}
-          
-        >Accordion1</Box>
+          component="p"
+          sx={{
+            flexGrow: 1,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            whiteSpace: 'nowrap',
+            marginLeft: 1,
+            width: '10vw',
+            // wordBreak: 'break-word',
+          }}  
+        >
+          Accordion1Accordion1Accordion1Accordion1Accordion1
+        </Box>
       </AccordionSummary>
       <AccordionDetails>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse

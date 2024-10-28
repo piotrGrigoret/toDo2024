@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import theme from './theme/theme';
+import { SnackbarProvider } from 'notistack';
 
 
 
@@ -20,7 +21,9 @@ root.render(
     <Provider store={store}>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
-          <App />
+          <SnackbarProvider maxSnack={3}>
+            <App />
+          </SnackbarProvider>
         </ThemeProvider>
       </BrowserRouter>
     </Provider>

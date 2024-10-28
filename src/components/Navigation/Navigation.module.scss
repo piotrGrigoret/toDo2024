@@ -1,0 +1,12 @@
+.nav_buttons > span{
+    display: block;
+} 
+
+@media (max-width: 900px) {
+
+    .nav_buttons > span{
+        display: none;
+
+    }     
+
+  }
