@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Accordion from '@mui/material/Accordion';
+import Accordion, { AccordionProps } from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -7,18 +7,36 @@ import Checkbox from '@mui/material/Checkbox';
 import { CheckboxProps } from '@mui/material/Checkbox';
 import { useState } from 'react';
 import { Box, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { setIsCheked } from '../../redux/slices/taskSlice';
 
-export default function Task() {
-  
-  const [checked, setChecked] = useState<boolean>(false);
+interface Task {
+  name: string;
+  description: string;
+  isChecked: boolean;
+}
+
+interface TaskProps {
+  task: Task;
+  index: number;
+}
+
+export  const Task: React.FC<TaskProps> = ({task, index}) => {
+  const dispath = useDispatch();
+  const [open, setOpen] = useState<boolean>(false);
 
   const handleCheckboxChange: CheckboxProps['onChange'] = (event) => {
     event.stopPropagation(); 
-    setChecked(event.target.checked);
+    dispath(setIsCheked(index));
+
+  };
+
+  const handleAccordionChange: AccordionProps['onChange'] = (event, isExpanded) => {
+    setOpen(isExpanded);
   };
 
   return (
-    <Accordion>
+    <Accordion onChange={handleAccordionChange}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1-content"
@@ -26,7 +44,7 @@ export default function Task() {
         
       >
         <Checkbox
-          checked={checked}
+          checked={task.isChecked}
           onChange={handleCheckboxChange}
           onClick={(e) => e.stopPropagation()}
         />
@@ -37,19 +55,17 @@ export default function Task() {
             flexGrow: 1,
             overflow: 'hidden',
             textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
+            whiteSpace: open ? 'wrap' : 'nowrap' ,
             marginLeft: 1,
             width: '10vw',
-            // wordBreak: 'break-word',
+            wordBreak:  'break-word',
           }}  
         >
-          Accordion1Accordion1Accordion1Accordion1Accordion1
+          {task.name}
         </Box>
       </AccordionSummary>
       <AccordionDetails>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-        malesuada lacus ex, sit amet blandit leo lobortis eget.
-        
+        {task.description}
       </AccordionDetails>
   </Accordion>
 
