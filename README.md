@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="./frontend/src/img/logo2.png" alt="logo" width="130" height="130">
+  <img src="./public/assets/png/logo1.png" alt="logo" width="130" height="130">
   <h1>ASYNC TALK</h1>
 </div>
 
