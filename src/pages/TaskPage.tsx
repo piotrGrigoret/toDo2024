@@ -9,7 +9,6 @@ import { selectRegistration } from '../redux/slices/registrationSlice';
 import { useDispatch } from 'react-redux';
 import { selectTask, setTaskName, setTaskDescription, addTask } from '../redux/slices/taskSlice';
 import { useSnackbar } from 'notistack';
-import { error } from 'console';
 
 export const TaskPage: React.FC = () => {
   const dispath = useDispatch();

@@ -12,25 +12,24 @@ export const Catalog: React.FC = () => {
     <Box sx={{flex:1}} component='div'>
       <List
         sx={{
-          width: '100%',
-          maxWidth: 460,
+          width: {xs:'90vw' , sm:'90vw', md:460},
           bgcolor: 'background.paper',
           position: 'relative',
           overflow: 'auto',
           maxHeight: '35vh',
+          margin: '0 auto',
           '& ul': { padding: 0 },
         }}
         subheader={<li />}
       >
         
         {tasks.map((task, index)=>(
-          <Task task = {task} index = {index} key={index}/>
+          <Task task = {task} id = {task.id} key={task.id}/>
         ))
 
         }
       </List>
       <Navigation/>
-
     </Box>
   );
 }

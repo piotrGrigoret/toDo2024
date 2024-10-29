@@ -11,6 +11,7 @@ import { useDispatch } from 'react-redux';
 import { setIsCheked } from '../../redux/slices/taskSlice';
 
 interface Task {
+  id: string;
   name: string;
   description: string;
   isChecked: boolean;
@@ -18,16 +19,16 @@ interface Task {
 
 interface TaskProps {
   task: Task;
-  index: number;
+  id: string;
 }
 
-export  const Task: React.FC<TaskProps> = ({task, index}) => {
+export  const Task: React.FC<TaskProps> = ({task, id}) => {
   const dispath = useDispatch();
   const [open, setOpen] = useState<boolean>(false);
 
   const handleCheckboxChange: CheckboxProps['onChange'] = (event) => {
     event.stopPropagation(); 
-    dispath(setIsCheked(index));
+    dispath(setIsCheked(id));
 
   };
 
@@ -36,7 +37,9 @@ export  const Task: React.FC<TaskProps> = ({task, index}) => {
   };
 
   return (
-    <Accordion onChange={handleAccordionChange}>
+    <Accordion onChange={handleAccordionChange} sx={{
+      // margin: '0 auto'
+    }}>
       <AccordionSummary
         expandIcon={<ExpandMoreIcon />}
         aria-controls="panel1-content"
@@ -47,6 +50,7 @@ export  const Task: React.FC<TaskProps> = ({task, index}) => {
           checked={task.isChecked}
           onChange={handleCheckboxChange}
           onClick={(e) => e.stopPropagation()}
+          sx={{opacity: 1}}
         />
         
         <Box 
@@ -56,15 +60,21 @@ export  const Task: React.FC<TaskProps> = ({task, index}) => {
             overflow: 'hidden',
             textOverflow: 'ellipsis',
             whiteSpace: open ? 'wrap' : 'nowrap' ,
-            marginLeft: 1,
             width: '10vw',
             wordBreak:  'break-word',
+            textDecoration: task.isChecked ? 'line-through' : 'none',
+            opacity: task.isChecked ? .5 : 1,
           }}  
         >
           {task.name}
         </Box>
       </AccordionSummary>
-      <AccordionDetails>
+      <AccordionDetails sx={{
+            textOverflow: 'ellipsis',
+            whiteSpace: 'wrap',
+            wordBreak:  'break-word',
+            opacity: task.isChecked ? .5 : 1,
+        }}>
         {task.description}
       </AccordionDetails>
   </Accordion>
