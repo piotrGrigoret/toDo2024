@@ -43,7 +43,11 @@ This application is a simple and convenient to-do list designed to help users or
 Notably, the application is fully responsive and works well on mobile devices, ensuring a smooth experience on different screen sizes. This app is purely a frontend solution — all data is stored locally on the user's device and is not saved in a database, ensuring information is retained only as long as the app remains open or until the page is refreshed.
 
 
-<img src="./public/assets/png/descr1.png" alt="settings1" width="40%">
 
-<img src="./public/assets/png/descr2.png" alt="settings1" width="40%">
+
+<div style="display: flex; justify-content: space-around;">
+  <img src="./public/assets/png/descr1.png" alt="settings1" width="46%">
+  <img src="./public/assets/png/descr2.png" alt="settings2" width="49.9%">
+</div>
+
 
