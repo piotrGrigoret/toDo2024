@@ -3,7 +3,6 @@ import { RootState } from "../store";
 
 
 type SnackBarStatus = 'default' | 'error' | 'success' | 'warning' | 'info';
-
 interface RegistrationSliceState {
     name: string;
     isAuth: boolean;
@@ -11,7 +10,7 @@ interface RegistrationSliceState {
     snackBarStatus: SnackBarStatus;
 }
 
-const initialState: RegistrationSliceState = {
+export const initialState: RegistrationSliceState = {
     name: '',
     isAuth: false,
     snackBarMsg: '',

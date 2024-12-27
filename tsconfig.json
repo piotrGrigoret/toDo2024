@@ -21,6 +21,18 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
-  ]
+    "src", 
+    "jest.config.ts"  
+  ],
+  
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+}
 }

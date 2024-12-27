@@ -39,7 +39,7 @@ const createInitialState = (): TaskSliceState => ({
     filter: 'all', 
 
 })
-const initialState = createInitialState();
+export const initialState = createInitialState();
 initialState.tasks = [...initialState.allTasks];
 
 const taskSlice = createSlice({
@@ -61,7 +61,7 @@ const taskSlice = createSlice({
             }
             if (alTask) {
                 alTask.isChecked = !alTask.isChecked;
-              }
+            }
         },
         addTask(state){
             const newTask = {
@@ -80,7 +80,6 @@ const taskSlice = createSlice({
             state.task.description = '';
         },
         filterTasks(state, action: PayloadAction<FilterStatus>){
-            console.log(action.payload);
             state.filter  = action.payload;
             
             switch (state.filter) {

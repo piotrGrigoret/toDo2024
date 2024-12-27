@@ -42,9 +42,6 @@ export const Registration: React.FC = () => {
     showSnackbar(snackBarMsg, snackBarStatus);
     isAuth && navigate('/tasks');
   }
-  // console.log(sessionStorage.getItem('testKey')); // Выведет: "Это тестовое значение"
-
-  
 
   return (
       <Container sx={{flexDirection:{xs: 'column', sm:'column', md:'row'}}}>
